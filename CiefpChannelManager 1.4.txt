@@ -1,0 +1,113 @@
+################################################################################################################################################################
+
+wget -q "--no-check-certificate" https://raw.githubusercontent.com/ciefp/CiefpChannelManager/main/installer.sh -O - | /bin/sh
+
+################################################################################################################################################################
+
+# Opis plugina CiefpChannelManager
+
+**CiefpChannelManager** je moćan plugin za Enigma2 dizajniran za upravljanje TV buketima i kanalima na satelitskim prijemnicima temeljenim na Enigma2.
+Razvijajući se od izvornog plugina `CiefpBouquetUpdater`, nudi napredne funkcije za ažuriranje, organiziranje i uređivanje buketa i kanala,
+uključujući robusnu podršku za IPTV streamove. Dodatak pruža intuitivan interfejs za korisnike kako bi efikasno prilagodili svoje liste kanala.
+
+## Funkcionalne komponente
+
+### 1. Ažuriranje ( CiefpBouquetUpdater )
+Komponenta **Ažuriranje** obrađuje početno stvaranje i ažuriranje buketa na temelju unapred definiranih ili korisnički definiranih lista kanala.
+- **Opcije**:
+  - Uvozi liste kanala s Github stranice (npr. "ciefp-E2-75E-34W").
+  - Podržava ažuriranje jednog ili više buketa,korisnik sam bira šta će se ažurirati.
+  - Koristi OK dugme za selekciju,zeleno dugme za kopiranje i žuto dugme za instalaciju.
+  - Ponovno učitava liste servisa i bukete Enigma2 nakon ažuriranja kako bi se promene primenile bez problema.
+  - Plavo dugme se koristi za prelazak na sledeći ekran uređivač buketa (Editor).
+
+### 2. Uređivač buketa ( CiefpBouquetEditor )
+**Uređivač buketa** omogućuje korisnicima upravljanje strukturom buketa, menjanje pozicija jednog ili više buketa.
+- **Opcije**:
+  - Koristi OK dugme za selekciju jednog ili više buketa,buketi dobiju prefiks „+“.
+  - Žuto dugme aktivira mode pomeranja (Move Mode),buketi za pomeranje dobiju prefiks „>>“.
+  - Koristi tastere gore i dole za pomeranje selektovanih buketa.
+  - Dolaskom na željeno mesto isključujemo opciju (Move Mode) na žuto dugme.
+  - Koristimo zeleno dugme da bismo sačuvali promene u datotekama buketa, čuvajući strukturu za Enigmu2.
+  - Ako želimo da uređujemo kanale unutar buketa pomoću trake za izbor, dolazimo do buketa u kojem se nalaze kanali koje želimo da izmenimo.
+  - Plavo dugme se koristi za prelazak na sledeći ekran uređivač buketa (Channels).
+
+### 3. Uređivač kanala ( CiefpChannelEditor )
+**Uređivač kanala** pruža detaljnu kontrolu nad pojedinačnim kanalima unutar buketa.
+- **Opcije**:
+  - Izbor kanala na dugme OK za uređivanje, označenih prefiksom „+“.
+  - Brisanje odabranih kanala ili grupa (crveno dugme) s trenutnim ažuriranjem liste.
+  - Pomeranje kanala ili grupa gore/dolje (žuto dugme za „Move Mode“) radi reorganizacije liste.
+  - Slekcija cele grupe kanala plavo dugme,selektovanjem markera i koristeći plavo dugme selektuju se svi kanali do sledećeg markera.
+  - Aktiviranjem „Move Mode“ imate mogućnost pomeranje grupe kanala na željeno mesto.
+  - Ako želite da vam sportski kanali budu na vrhu buketa,ova opcija je za vas napravljena.
+  - Podrška za standardne DVB kanale (putem `lamedb`) i IPTV kanale, osiguravajući točno imenovanje i rukovanje.
+  - Čuvanje promena u datoteci buketa, s automatskim generisanjem `#OPISA` za IPTV kanale.
+
+## Ključne karakteristike
+- **Korisnički interfejs**: Intuitivna navigacija s dugmadima u bojama (zelena: Sačuvaj, žuta: Režim premještanja, crvena: Izbriši, plava: Odaberi grupu).
+- **IPTV podrška**: Besprekorno rukovanje IPTV kanalima s ekstrakcijom i filtriranjem odgovarajućih imena.
+- **Evidentiranje grešaka**: Detaljni zapisnici u `/tmp/channel_editor_debug.log` za rešavanje problema.
+- **Robusna obrada grešaka**: Elegantno rukovanje nedostajećim ili nevažećim formatima, s jasnim porukama o statusu.
+
+**CiefpChannelManager** je vrhunski alat za korisnike Enigme2 koji žele potpunu kontrolu nad svojim TV paketima i kanalima,
+kombinovanjem ažuriranja, uređivanja i organiziranja u jedan sveobuhvatni dodatak.
+
+## Zasluge
+Izrađeno od strane **Grok** (pokreće xAI) u suradnji s **CiefpSettings**.
+Posebna zahvala Enigma2 zajednici na inspiraciji i podršci.
+
+#####################################################################################################################################################################
+
+# CiefpChannelManager Plugin Description
+
+**CiefpChannelManager** is a powerful Enigma2 plugin designed for managing TV bouquets and channels on Enigma2-based satellite receivers.
+Evolving from the original `CiefpBouquetUpdater`, it offers advanced features for updating, organizing, and editing bouquets and channels,
+including robust support for IPTV streams. The plugin provides an intuitive interface for users to customize their channel lists efficiently.
+
+## Functional Components
+
+### 1. Updater ( CiefpBouquetUpdater )
+The **Updater** component handles the initial creation and updating of bouquets based on predefined or user-provided channel lists.  
+- **Capabilities**:
+  - Imports channel lists from Github site (e.g.,"ciefp-E2-75E-34W").
+  - Supports updating one or more bouquets, the user chooses what to update.
+  - Use the OK button to select, the green button to copy, and the yellow button to install.
+  - Reloads Enigma2 service lists and bouquets after updates to apply changes seamlessly.
+  - The blue button is used to move to the next bouquet editor screen (Editor).
+
+### 2. Bouquet Editor ( CiefpBouquetEditor )
+**Bouquet Editor** allows users to manage the bouquet structure, changing the positions of one or more bouquets. 
+  - **Capabilities**:
+  - Use the OK button to select one or more bouquets, bouquets are prefixed with a „+“.
+  - The yellow button activates the Move Mode, the move bouquets are prefixed with „>>“.
+  - Use the up and down keys to move the selected bouquets.
+  - When you reach the desired location, turn off the (Move Mode) option on the yellow button.
+  - Use the green button to save changes to the bouquet files, preserving the structure for Enigma2.
+  - If we want to edit channels within a bouquet with the selection bar, we come to the bouquet in which the channels we want to edit are located.
+  - The blue button is used to move to the next bouquet editor screen (Channels).
+
+### 3. Channel Editor ( CiefpChannelEditor )
+The **Channel Editor** provides detailed control over individual channels within a bouquet.  
+- **Capabilities**:
+  - Select channels (OK button) for editing, marked with a „+“ prefix.
+  - Delete selected channels or groups (Red button) with immediate list updates.
+  - Move channels or groups up/down (Yellow button for „Move Mode“) to reorganize the list.
+  - Selection of the entire channel group blue button, by selecting a marker and using the blue button, all channels up to the next marker are selected.
+  - By activating "Move Mode", you have the option to move a channel group to the desired location.
+  - If you want sports channels to be at the top of your bouquet, this option is made for you.
+  - Support for both standard DVB channels (via `lamedb`) and IPTV channels, ensuring accurate naming and handling.
+  - Save changes to the bouquet file, with automatic `#DESCRIPTION` generation for IPTV channels.
+
+## Key Features
+- **User-Friendly Interface**: Intuitive navigation with color-coded buttons (Green: Save, Yellow: Move Mode, Red: Delete, Blue: Select Group).
+- **IPTV Support**: Seamless handling of IPTV channels with proper name extraction and filtering.
+- **Debug Logging**: Detailed logs in `/tmp/channel_editor_debug.log` for troubleshooting.
+- **Robust Error Handling**: Graceful management of missing files or invalid formats, with clear status messages.
+
+**CiefpChannelManager** is the ultimate tool for Enigma2 users seeking complete control over their TV bouquets and channels,
+ combining updating, editing, and organizing into one comprehensive plugin.
+
+## Credits
+Made by **Grok** (powered by xAI) in collaboration with **CiefpSettings**.  
+Special thanks to the Enigma2 community for inspiration and support.
